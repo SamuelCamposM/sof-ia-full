@@ -64,7 +64,7 @@ Las tecnologias utilizadas son:
 
 **Samuel Benjamin** (https://github.com/SamuelCamposM)
 
-**Cristhoper Mendez** (https://github.com/SamuelCamposM)
+**Cristhoper Mendez** (https://github.com/Cristhoper-Mendez)
 
 **Gerardo Garcia** (https://github.com/GerardoJose002)
 
