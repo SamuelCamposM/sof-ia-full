@@ -34,9 +34,9 @@ this.conexionSocket()
   },
   methods: {
     conexionSocket() {
-    this.socket = io("http://localhost:4000");
+    this.socket = io("http://localhost:4000")
     if (this.socket) {
-      console.log("conectado");
+      console.log("conectado")
     }
   },
     async init() {
