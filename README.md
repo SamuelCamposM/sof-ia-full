@@ -34,7 +34,7 @@ En el backend ejecuta el comando:
 ```npm run test```
 
 En en el frontend ejecuta el comando:
-´´´npm run electron:serve```
+```npm run electron:serve```
 
 ### Deployment📦
 
