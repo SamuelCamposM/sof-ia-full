@@ -2,6 +2,7 @@
   "name": "sofia-vue",
   "version": "0.1.0",
   "private": true,
+  "icon":"build/icon.png",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
