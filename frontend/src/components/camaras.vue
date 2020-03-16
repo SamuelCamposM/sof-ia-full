@@ -1,5 +1,8 @@
 <template>
   <div>
+    <v-container>
+       <v-col cols="3"></v-col>   
+          <v-col cols="6">
     <div>Teachable Machine Pose Model</div>
     <div class="d-flex align-items-center">
       jeje Lorem ipsum dolor sit amet consectetur adipisicing elit. In eum non
@@ -9,7 +12,10 @@
     </div>
 
     <div><canvas id="canvas"></canvas></div>
-    <div id="label-container"></div>
+    <div id="label-container"></div>     
+    </v-col>
+     <v-col cols="3"></v-col>
+    </v-container>
   </div>
 </template>
 
@@ -22,7 +28,7 @@ this.conexionSocket()
   },
   data() {
     return {
-      URL: "https://teachablemachine.withgoogle.com/models/aImvsDZb/",
+      URL: "https://teachablemachine.withgoogle.com/models/SZKYnKYw/",
       model: null,
       webcam: null,
       ctx: null,
@@ -34,9 +40,10 @@ this.conexionSocket()
   },
   methods: {
     conexionSocket() {
-    this.socket = io("http://localhost:4000")
+    this.socket = io("http://localhost:4000");
     if (this.socket) {
       console.log("conectado")
+      
     }
   },
     async init() {
@@ -88,8 +95,8 @@ this.conexionSocket()
         this.labelContainer.childNodes[i].innerHTML = classPrediction;
 
         if (
-          prediction[i].probability == 1 &&
-          prediction[i].className != "Nelson"
+          prediction[i].probability == 1.00 &&
+          prediction[i].className != "person e pie"
         ) {
         this.valor = prediction[i].className;
 

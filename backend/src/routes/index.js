@@ -8,5 +8,6 @@ const Casos = require('../models/casos')
 router.get('/mostrando-casos', async(req,res)=>{
     const casos =  await Casos.find()
     res.send(casos)
+   
  })
 module.exports = router;

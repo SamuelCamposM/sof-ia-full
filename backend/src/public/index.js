@@ -2,7 +2,7 @@
 //SOCKET.IO
 const socket = io();
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/dwlg1CDX/";
+const URL = "https://teachablemachine.withgoogle.com/models/SZKYnKYw/";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 async function init() {
@@ -14,6 +14,7 @@ async function init() {
     // Nota: la biblioteca de pose agrega un objeto tmPose a su ventana (window.tmPose)
     model = await tmPose.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
+console.log(maxPredictions);
 
 
     //Función de conveniencia para configurar una cámara web
@@ -55,7 +56,7 @@ async function prediccion() {
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         labelContainer.childNodes[i].innerHTML = classPrediction;
 
-        if (prediction[i].probability == 1 && prediction[i].className != 'normal') {
+        if (prediction[i].probability == 1 && prediction[i].className != 'persona de pie') {
 
             let valor = prediction[i].className
 
@@ -115,18 +116,7 @@ socket.on('guardado', (datos) => {
     console.log(datos.guardado);
     let caso = datos.caso
     
-    fetch('/nuevo-mensaje', {
-        method: 'POST',
-        titulo: "dato guardado",
-        body: JSON.stringify({
-            titulo: "dato guardado",
-            mensaje: caso,
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
+ 
 })
 
 

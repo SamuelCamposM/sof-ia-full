@@ -20,10 +20,10 @@ export default {
   },
   data () {
     return {
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      url: 'http://b.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
       zoom: 3,
-      center: [47.313220, -1.319482],
-      markerLatLng: [47.313220, -1.319482]
+      center: [13.7941847, -88.8965302],
+      markerLatLng: [13.7941847, -88.8965302],
     };
   }
 }

@@ -10,8 +10,9 @@ const casos = new Schema({
      dia: {type:Number},
      mes :{type :Number, default: new Date().getMonth() + 1 },
      año :{type :Number, default: new Date().getFullYear()},
-     horaExacta:{type:String}
-
+     horaExacta:{type:String},
+     contador: {type: Number, default: 1},
+     FechaISO :{ type: String, default:new Date().toISOString().substr(0, 10)}
 })
 
 

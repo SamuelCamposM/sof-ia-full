@@ -1,62 +1,111 @@
 <template>
   <div id="app">
-    <aside class="admin-sidebar">
-    <div class="admin-sidebar-brand nav">
-        <!-- begin sidebar branding-->
-        <h3 class="ml-3">SOFIA</h3>
-    </div>
+    <v-app id="inspire" style="background-color: rgb(43,46,59);">
+      <v-container>
+        <v-navigation-drawer
+          v-model="drawer"
+          :expand-on-hover="expandOnHover"
+          :mini-variant="miniVariant"
+          absolute
+          class=".headline fo"
+        >
+          <v-list dense nav class="py-0">
+            <router-link to="/" style="text-decoration:none">
+              <v-list-item link class="py-2 ">
+                <v-list-item-icon>
+                  <v-icon >home</v-icon>
+                </v-list-item-icon>
 
-    <div class="admin-sidebar-wrapper js-scrollbar fondo">
-        <ul class="menu">
-            <li class="menu-item">
-                <router-link to="/">
-                    <a href="#" class="open-dropdown menu-link">
-                     <span class="menu-label"><h5 class="menu-name text-center  text-dark">Inicio</h5></span>
-                     <span class="menu-icon">
-                      <i class="icon-placeholder fe fe-home "></i>
-                       </span>
-                </a>
-                </router-link>
-            </li>
-            <br>
-            <li class="menu-item">
-                <router-link to="/mapa">
-                    <a href="#" class="open-dropdown menu-link">
-                     <span class="menu-label"><h5 class="menu-name text-center">Mapa</h5></span>
-                     <span class="menu-icon">
-                      <i class="icon-placeholder fe fe-map-pin "></i>
-                       </span>
-                </a>
-                </router-link>
-            </li>
-            
-            <li class="menu-item">
-                <router-link to="/estadistica">
-                    <a  class="open-dropdown menu-link">
-                     <span class="menu-label"><h5 class="menu-name text-center">Estadisticas</h5></span>
-                     <span class="menu-icon">
-                      <i class="icon-placeholder fe fe-bar-chart-2 "></i>
-                       </span>
-                </a>
-                </router-link>
-            </li>
-        </ul>
-    </div>
-</aside>
-<main class="admin-main">
-    <!--site header begins-->
-<header class="admin-header fondo">
+                <v-list-item-content>
+                  <v-list-item-title class="py-2 title">Inicio</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
 
-    <nav class=" mr-auto my-auto">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control ml-3" placeholder="Introduce tu Busqueda" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
-            </div>
-          </div>
-    </nav>
-</header>
-</main>
-    <router-view/>
+            <router-link to="/mapa" style="text-decoration:none">
+              <v-list-item link class="py-2">
+                <v-list-item-icon>
+                  <v-icon >location_on</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title class="py-2 title ">Mapa</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <router-link to="/estadistica" style="text-decoration:none">
+              <v-list-item link class="py-2 white--text">
+                <v-list-item-icon>
+                  <v-icon >bar_chart</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title class="py-2 title " >Estadisticas</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <router-link to="/calendario" style="text-decoration:none">
+              <v-list-item link class="py-2 ">
+                <v-list-item-icon>
+                  <v-icon >calendar_today</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title class="py-2 title">Calendario</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+
+            <router-link to="/configuracion" style="text-decoration:none">
+              <v-list-item link class="py-2 white--text">
+                <v-list-item-icon class="py-2 title">
+                  <v-icon >settings</v-icon>
+                </v-list-item-icon>
+
+                <v-list-item-content>
+                  <v-list-item-title class="py-2 title">Configuración</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </router-link>
+          </v-list>
+        </v-navigation-drawer>
+      </v-container>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
+
+<script>
+import VueRouter from 'vue-router'
+export default {
+  
+  data() {
+    return {
+      items: [
+        { title: "Inicio", icon: "home" },
+        { title: "Mapa", icon: "location_on" },
+        { title: "Estadisticas", icon: "bar_chart" },
+        { title: "Calendario", icon: "calendar_today" },
+        { title: "Configuración", icon: "settings" }
+      ],
+      drawer: true,
+      color: "success",
+      right: true,
+      miniVariant: true,
+      expandOnHover: true,
+      background: true
+    };
+  }
+};
+</script>
+
+<style>
+li a {
+  text-decoration: none;
+}
+#app{
+  background-color: rgb(43,46,59);
+}
+</style>
