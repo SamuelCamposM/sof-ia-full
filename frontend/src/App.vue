@@ -8,12 +8,13 @@
           :mini-variant="miniVariant"
           absolute
           class=".headline fo"
+         color="blue lighten-4"
         >
           <v-list dense nav class="py-0">
             <router-link to="/" style="text-decoration:none">
-              <v-list-item link class="py-2 ">
-                <v-list-item-icon>
-                  <v-icon >home</v-icon>
+              <v-list-item link class="py-4 ">
+                <v-list-item-icon class="py-4 title">
+                  <v-icon large>home</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -23,9 +24,9 @@
             </router-link>
 
             <router-link to="/mapa" style="text-decoration:none">
-              <v-list-item link class="py-2">
-                <v-list-item-icon>
-                  <v-icon >location_on</v-icon>
+              <v-list-item link class="py-4">
+                <v-list-item-icon class="py-4 title">
+                  <v-icon large >location_on</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -35,9 +36,9 @@
             </router-link>
 
             <router-link to="/estadistica" style="text-decoration:none">
-              <v-list-item link class="py-2 white--text">
-                <v-list-item-icon>
-                  <v-icon >bar_chart</v-icon>
+              <v-list-item link class="py-4 white--text">
+                <v-list-item-icon class="py-4 title">
+                  <v-icon large  >bar_chart</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -47,9 +48,9 @@
             </router-link>
 
             <router-link to="/calendario" style="text-decoration:none">
-              <v-list-item link class="py-2 ">
-                <v-list-item-icon>
-                  <v-icon >calendar_today</v-icon>
+              <v-list-item link class="py-4 ">
+                <v-list-item-icon class="py-4 title">
+                  <v-icon large >calendar_today</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -59,9 +60,9 @@
             </router-link>
 
             <router-link to="/configuracion" style="text-decoration:none">
-              <v-list-item link class="py-2 white--text">
-                <v-list-item-icon class="py-2 title">
-                  <v-icon >settings</v-icon>
+              <v-list-item link class="py-4 white--text">
+                <v-list-item-icon class="py-4 title">
+                  <v-icon large >settings</v-icon>
                 </v-list-item-icon>
 
                 <v-list-item-content>
@@ -107,5 +108,8 @@ li a {
 }
 #app{
   background-color: rgb(43,46,59);
+}
+html {
+  scroll-behavior: smooth;
 }
 </style>

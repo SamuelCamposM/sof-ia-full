@@ -70,7 +70,7 @@ Las tecnologias utilizadas son:
 
 **Iván Linares** (https://github.com/IvnLinares)
 
-**Diego Guerrero** 
+**Diego Guerrero**  
 
 
 ### Licencia 📄

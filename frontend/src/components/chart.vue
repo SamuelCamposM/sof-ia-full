@@ -15,9 +15,8 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="container">
+    </div>red--text
+    <div class="container white-- text">
       <div class="row">
         <div class="col-md-6">
           <div class>
@@ -25,7 +24,21 @@
               <div class="card-body">
                 <div class="chart">
                   <h4 class="text-center">Reporte Anual</h4>
-                  <line-chart :chart-data="datacollection"></line-chart>
+                  <line-chart :chart-data="datacollection">
+                    <!-- Chart.defaults.global.defaultFontColor = 'red';
+                    let chart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                    legend: {
+                    labels: {
+                    // This more specific font property overrides the global property
+                    fontColor: 'black'
+                    }
+                    }
+                    }
+                    }); -->
+                  </line-chart>
                 </div>
               </div>
             </div>

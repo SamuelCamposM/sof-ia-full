@@ -1,30 +1,32 @@
 <template>
-<div class="col-8">
-  <div style="height: 500px; width: 100%">
-<l-map  style="height: 200px overflow: auto;" :zoom="zoom" :center="center">
-<l-tile-layer :url="url"></l-tile-layer>
-<l-marker :lat-lng="markerLatLng" ></l-marker>
-</l-map>
-</div>
-</div>
+ 
+    <v-container>
+          <l-map style="height: 500px" :zoom="zoom" :center="center">
+            <l-tile-layer :url="url"></l-tile-layer>
+            <lMarker :lat-lng="center"></lMarker>
+          </l-map>
+     </v-container>
+     
 </template>
-
 <script>
-import {LMap, LTileLayer, LMarker} from 'vue2-leaflet';
 
+import L from 'leaflet';
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 export default {
   components: {
     LMap,
     LTileLayer,
-    LMarker
+    LMarker,
   },
-  data () {
+  data() {
     return {
-      url: 'http://b.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-      zoom: 3,
-      center: [13.7941847, -88.8965302],
-      markerLatLng: [13.7941847, -88.8965302],
+      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      zoom: 10,
+      center: [13.8333000,-88.9167000],
+      markerLatLng: [13.8333000,-88.9167000]
     };
   }
-}
+};
 </script>
+
+<style>

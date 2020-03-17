@@ -7,12 +7,20 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>SOFIA APP</title>
 <style>
-  
-
+  html {
+  scroll-behavior: smooth;
+}
+#container::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
 
   </style>
   </head>
-  <body class="navegacion-color">
+  <body class="navegacion-color" id="container">
     
     <div id="app"></div>
     <!-- built files will be auto injected -->

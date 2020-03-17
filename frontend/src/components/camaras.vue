@@ -96,7 +96,7 @@ this.conexionSocket()
 
         if (
           prediction[i].probability == 1.00 &&
-          prediction[i].className != "person e pie"
+          prediction[i].className != "persona de pie"
         ) {
         this.valor = prediction[i].className;
 
