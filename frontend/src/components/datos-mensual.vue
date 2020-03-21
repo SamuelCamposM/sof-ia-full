@@ -1,14 +1,13 @@
 <template>
   <div>
 
-    <h1>Datos filtrados del mes: {{ mes }}</h1>
+    <h3 class="white--text text-center">Datos filtrados del mes: {{ mes }}</h3>
     <input type="text" v-model="mes" placeholder="Escribe el año" />
     <button type="button" @click="traerColeccion()">datos de año deseado</button>
     <line-chart :chart-data="datacollection"></line-chart>
   </div>
 
 </template>
-
 <script>
 import LineChart from "./chart-mes.js";
 export default {

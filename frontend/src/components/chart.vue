@@ -15,30 +15,17 @@
           </div>
         </div>
       </div>
-    </div>red--text
-    <div class="container white-- text">
+    </div>
+
+    <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div class>
             <div class="card">
               <div class="card-body">
                 <div class="chart">
-                  <h4 class="text-center">Reporte Anual</h4>
-                  <line-chart :chart-data="datacollection">
-                    <!-- Chart.defaults.global.defaultFontColor = 'red';
-                    let chart = new Chart(ctx, {
-                    type: 'line',
-                    data: data,
-                    options: {
-                    legend: {
-                    labels: {
-                    // This more specific font property overrides the global property
-                    fontColor: 'black'
-                    }
-                    }
-                    }
-                    }); -->
-                  </line-chart>
+                  <h2 class="text-center white--text  ">Reporte Anual</h2>
+                  <line-chart :chart-data="datacollection" class="white--text"></line-chart>
                 </div>
               </div>
             </div>
@@ -49,7 +36,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="chart">
-                  <h4 class="text-center">Reporte Mensual</h4>
+                  <h2 class="text-center white--text">Reporte Mensual</h2>
                   <semanal></semanal>
                 </div>
               </div>
@@ -60,7 +47,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import LineChart from "./chart-total.js";
 import semanal from "@/components/datos-mensual.vue";
