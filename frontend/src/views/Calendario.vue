@@ -1,30 +1,34 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="1"></v-col>
+      <v-col cols="1"> 
+     </v-col>
       <v-col cols="5">
         <v-row>
           <v-layout :wrap="true">
             <v-flex>
               <v-card>
                 <v-date-picker
-                  color="rgb(43,46,59)"
+                  :color="ColorNavegacion"
                   v-model="fecha"
                   full-width
                   class="mt-4"
                   locale="es-cl"
                   :min="minimo"
                   :max="max"
-                  dark
+                  :dark="dark"
                   @change="filtrarPorFecha(fecha)"
                   hover="true"
                 ></v-date-picker>
               </v-card>
               <br />
               <v-divider></v-divider>
-              <v-card id="borde" color="secondary" dark hover="true">
-                <v-card-text class="title text-center"> Fecha elegida : {{ fecha }}</v-card-text>
+            
+              <v-card id="borde" :color="ColorNavegacion" :dark="dark" hover="true">
+                <v-card-text class="title text-center">Fecha elegida : {{ fecha }}</v-card-text>
               </v-card>
+              <v-divider></v-divider>
+                <v-switch v-model="dark" label="Dark mode" @change="modoOscuro(dark)"></v-switch>
             </v-flex>
           </v-layout>
         </v-row>
@@ -36,8 +40,7 @@
           <div></div>
           <v-card
             id="bordes"
- 
-           color="blue lighten-2"
+            :color="ColorNavegacion"
             v-for="filtrado in filtrados"
             :key="filtrado.id"
             class="mx-4 my-4"
@@ -62,6 +65,7 @@
 <script>
 // @ is an alias to /src
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -79,7 +83,7 @@ export default {
       fecha: new Date().toISOString().substr(0, 10),
       minimo: "1984",
       max: new Date().toISOString().substr(0, 10),
-
+      dark: true,
       colecciones: [],
       filtrados: []
     };
@@ -108,7 +112,9 @@ export default {
       console.log(this.filtrados);
     }
   },
-
+  computed: {
+    ...mapState(["ColorNavegacion", "ColorNavegacionFondo"])
+  },
   created() {
     this.traerColeccion();
   }

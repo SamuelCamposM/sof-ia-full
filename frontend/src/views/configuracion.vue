@@ -2,36 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="1"></v-col>
-      <v-col cols="5">
-        <v-row>
-          <v-layout :wrap="true">
-            <v-flex>
-              <v-list-item>
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">Fuente</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item two-line>
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">Color de Navegacion</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
 
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">Color de Fondo</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="white--text">Tamaño de Fuente</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-flex>
-          </v-layout>
-        </v-row>
-      </v-col>
-      <br />
       <v-col cols="6">
         <v-layout :wrap="true">
           <br />
@@ -40,7 +11,7 @@
             v-model="selectFuente"
             :items="itemsFuente"
             :rules="[v => !!v || 'Item is required']"
-            label="Fuente"
+            label="seleccione una fuente"
             required
           ></v-select>
         </v-layout>
@@ -52,9 +23,10 @@
             v-model="selectNavegacion"
             :items="itemsNavegacion"
             :rules="[v => !!v || 'Item is required']"
-            label="Color"
+            label="Seleccione un color para el menu"
             blue
             lighten-5
+            @change="SeleccionarColor(selectNavegacion)"
             required
           ></v-select>
         </v-layout>
@@ -66,20 +38,20 @@
             v-model="selectFondo"
             :items="itemsFondo"
             :rules="[v => !!v || 'Item is required']"
-            label="Color"
+            label="Selecciona el color para el fondo"
             required
+            @change="SeleccionarColorFondo(selectFondo)"
           ></v-select>
+          <v-divider> </v-divider>
+             
         </v-layout>
-        <v-text-field
-          v-model="contador"
-          type="number"
-        ></v-text-field>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   name: "configuracion",
   data() {
@@ -90,7 +62,6 @@ export default {
       selectFondo: "",
       itemsFuente: ["Roboto", "monospace", "sans-serif", " Verdana"],
       itemsNavegacion: [
-        "white",
         "red",
         "purple ",
         "purple darken-1",
@@ -99,7 +70,14 @@ export default {
         "lime",
         "yellow accent-2",
         "black",
-        "deep-orange"
+        "deep-orange",
+        "primary",
+        "secondary",
+        "accent",
+        "error",
+        "info",
+        "success",
+        "warning"
       ],
       itemsFondo: [
         "white",
@@ -115,6 +93,10 @@ export default {
       ],
       contador: 0
     };
-  }
+  },
+  methods: {
+    ...mapActions(["SeleccionarColor","SeleccionarColorFondo",'modoOscuro'])
+  },
+  
 };
 </script>
