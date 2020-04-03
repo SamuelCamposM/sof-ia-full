@@ -3,7 +3,11 @@ const express = require('express');
 const serve = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const cors = require('cors')
+const cors = require('cors');
+const passport = require('passport');
+const session = require('express-session');
+const flash = require('connect-flash')
+
 
 //modelo
 const Casos = require('./src/models/casos')
@@ -18,11 +22,29 @@ mongoose.connect('mongodb://localhost/sofia', {
         console.log(error);
 
     })
+
+//Passport
+require('./src/passport/local')
+
 //midlewares
 serve.use(morgan('dev'));
 serve.use(express.urlencoded({ extended: false }))
 serve.use(express.json())
 serve.use(cors())
+serve.use(session({
+    secret: 'keysecret',
+    resave: false,
+    saveUninitialized: false
+}));
+serve.use(flash());
+serve.use(passport.initialize());
+serve.use(passport.session());
+serve.use((req, res, next) => {
+    serve.locals.signupMessage = req.flash('signupMessage');
+    serve.locals.signinMessage = req.flash('signinMessage');
+    next();
+});
+
 
 //creando el servidor
 serve.set("port", process.env.PORT || 4000)
@@ -33,7 +55,7 @@ const server = serve.listen(serve.get('port'), () => {
 //archivos estaticos
 serve.use(express.static(__dirname + '/src/public'));
 //routes
-serve.use(require('./src/routes/index'))
+serve.use('/', require('./src/routes/index'))
 //socket escuchando eventos
 const socketIO = require("socket.io");
 const io = socketIO.listen(server)
