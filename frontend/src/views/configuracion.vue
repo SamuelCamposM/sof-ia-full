@@ -1,21 +1,41 @@
 <template>
-  <v-container fluid>
-    <v-row>
-      <v-col cols="1"></v-col>
+  <v-container class="fill-height"
+        fluid>
+    <v-row align="center"
+          justify="center">
+          
 
-      <v-col cols="6">
-        <v-layout :wrap="true">
+      <v-col
+            cols="12"
+            sm="8"
+            md="4"
+            
+          >
+         <v-card class="elevation-12" min-width="500" aling="center ">
+         
+          <v-toolbar
+                color="purple" >
+          <v-toolbar-title >Configuracion</v-toolbar-title>
+          
+          </v-toolbar>
+          
+        <br />
+        <v-layout :wrap="true" >
           <br />
-          <div></div>
+          <div ></div>
+          
           <v-select
             v-model="selectFuente"
             :items="itemsFuente"
             :rules="[v => !!v || 'Item is required']"
             label="seleccione una fuente"
+            
             required
           ></v-select>
+          
+          
         </v-layout>
-
+<br />
         <v-layout :wrap="true">
           <br />
           <div></div>
@@ -30,7 +50,7 @@
             required
           ></v-select>
         </v-layout>
-
+          <br />
         <v-layout :wrap="true">
           <br />
           <div></div>
@@ -45,10 +65,13 @@
           <v-divider> </v-divider>
              
         </v-layout>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
+  
 </template>
+
 
 <script>
 import { mapState, mapActions } from "vuex";
