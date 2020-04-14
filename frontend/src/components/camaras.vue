@@ -5,10 +5,10 @@
           <v-col cols="6">
     <div>Teachable Machine Pose Model</div>
     <div class="d-flex align-items-center">
-      jeje Lorem ipsum dolor sit amet consectetur adipisicing elit. In eum non
-      maxime suscipit veritatis recusandae dignissimos rem animi quibusdam nobis
-      vel fuga unde, voluptatum quae laudantium, dolores magnam quia facilis.
-      <button type="button" @click="init()" class="">Start</button>
+      Presiona "Start" para poder habilitar la camara y ejecutar.
+    </div>
+    <div>
+      <v-btn type="button" @click="init()" class="">Start</v-btn>
     </div>
 
     <div><canvas id="canvas"></canvas></div>

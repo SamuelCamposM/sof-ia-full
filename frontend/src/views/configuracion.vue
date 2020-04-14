@@ -42,7 +42,6 @@
             required
             @change="SeleccionarColorFondo(selectFondo)"
           ></v-select>
-          <v-divider> </v-divider>
              
         </v-layout>
       </v-col>
@@ -58,12 +57,12 @@ export default {
     return {
       input: "",
       selectFuente: "Roboto",
-      selectNavegacion: "",
+      selectNavegacion: "purple",
       selectFondo: "",
       itemsFuente: ["Roboto", "monospace", "sans-serif", " Verdana"],
       itemsNavegacion: [
         "red",
-        "purple ",
+        "purple",
         "purple darken-1",
         "blue",
         "light-blue",

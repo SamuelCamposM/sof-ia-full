@@ -115,6 +115,24 @@
                 </v-list-item-content>
               </v-list-item>
             </router-link>
+
+        <router-link to="/registroCamara" style="text-decoration:none">
+                      <v-list-item link class="py-2 white--text">
+                        <v-list-item-icon class="py-2 title">
+                          <v-tooltip right :color="ColorNavegacion">
+                            <template v-slot:activator="{ on }">
+                              <v-icon class="white--text" v-on="on">camera</v-icon>
+                            </template>
+                            <span>Nueva Camara</span>
+                          </v-tooltip>
+                        </v-list-item-icon>
+
+                        <v-list-item-content>
+                          <v-list-item-title class="py-2 title white--text">Agregar Camara</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </router-link>
+
           </v-list>
         </v-navigation-drawer>
      
