@@ -3,7 +3,6 @@
     <v-app id="inspire">
       <v-layout :class="ColorNavegacionFondo" :color="ColorNavegacionFondo" >
   <v-container >
-     
         <v-navigation-drawer
           v-model="drawer"
           :expand-on-hover="expandOnHover"
@@ -14,7 +13,7 @@
         >
           <v-list dense nav class="py-0">
             <v-item>
-              <router-link to="/" style="text-decoration:none" >
+              <router-link to="/home" style="text-decoration:none" >
                 <v-list-item link class="py-2">
                   <v-list-item-icon>
                     <v-tooltip right :color="ColorNavegacion">
@@ -99,7 +98,7 @@
               </v-list-item>
             </router-link>
 
-            <router-link to="/login" style="text-decoration:none">
+            <router-link to="/" style="text-decoration:none">
               <v-list-item link class="py-2 white--text">
                 <v-list-item-icon class="py-2 title">
                   <v-tooltip right :color="ColorNavegacion">
@@ -111,7 +110,7 @@
                 </v-list-item-icon>
 
                 <v-list-item-content>
-                  <v-list-item-title class="py-2 title white--text">Configuración</v-list-item-title>
+                  <v-list-item-title class="py-2 title white--text">Cuenta</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </router-link>
@@ -162,19 +161,3 @@ export default {
 };
 </script>
 
-<style>
-li a {
-  text-decoration: none;
-}
-#app {
-  background-color: rgb(43, 46, 59);
-}
-.menu-fondo {
-  background-color: rgb(46, 48, 53);
-}
-
-#nav a.router-link {
-  color: #000000;
-}
-
-</style>

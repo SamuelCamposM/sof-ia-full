@@ -5,9 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    ColorNavegacion: null,
-    ColorNavegacionFondo: null,
-    oscuro:true
+    ColorNavegacion: "error",
+    ColorNavegacionFondo: "",
+    oscuro:false
   },
   mutations: {
     SetColorNavegation(state, payload) {
@@ -42,18 +42,3 @@ export default new Vuex.Store({
   modules: {
   }
 })
-
-
-    // itemsNavegacion: [
-    //   "white",
-    //   "red",
-    //   "purple ",
-    //   "purple darken-1",
-    //   "blue",
-    //   "light-blue",
-    //   "lime",
-    //   "yellow accent-2",
-    //   "black",
-    //   "deep-orange"
-    // ]
-   

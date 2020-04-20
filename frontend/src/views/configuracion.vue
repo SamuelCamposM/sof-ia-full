@@ -29,7 +29,6 @@
             :items="itemsFuente"
             :rules="[v => !!v || 'Item is required']"
             label="seleccione una fuente"
-            
             required
           ></v-select>
           

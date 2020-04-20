@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
@@ -42,7 +41,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/configuracion.vue')
   },
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -52,6 +51,7 @@ const routes = [
   {
     path: '/registro',
     name: 'registro',
+    hidden: true, // esto sirve para no mostrar lo que hay 
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

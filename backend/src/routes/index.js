@@ -1,6 +1,6 @@
-const { Router } = require('express')
+import {Router} from "express";
 const router = Router();
-const passport = require('passport')
+import passport from "passport";
 const Casos = require('../models/casos')
 
 //ruta para mostrar todos los casos
@@ -10,19 +10,24 @@ router.get('/mostrando-casos', async(req, res, next)=>{
    
  })
 
-router.get('/signup', (req, res, next) => {
-    res.sendfile('src/public/signup.html')
+ router.post("/signup", function (req, res, next) {
+  console.log(req.isAuthenticated()); //devuelve un false si no estas logueado o un true si lo estas
+  passport.authenticate("local-signup", function (err, user) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.redirect('http://localhost:8080/');
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect('http://localhost:8080/home');
+    });
+  })(req, res, next);
 });
 
-router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/signup',
-    passReqToCallback: true
-}));
-
-router.get('/signin', (req, res, next) => {
-    res.sendfile('src/public/signin.html')
-});
 
 router.post('/signin', passport.authenticate('local-signin', {
     successRedirect: '/profile',

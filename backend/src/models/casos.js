@@ -1,5 +1,4 @@
-const { Schema } = require('mongoose');
-const mongoose = require('mongoose')
+import { Schema, model } from 'mongoose';
 
 const casos = new Schema({
      nombre: { type: String },
@@ -16,4 +15,4 @@ const casos = new Schema({
 })
 
 
-module.exports = mongoose.model('casos', casos)
+export default model('casos', casos)
