@@ -4,7 +4,8 @@ import { hashSync, genSaltSync, compareSync } from 'bcrypt-nodejs';
 const userSchema = new Schema({
     email: String,
     password: String,
-    username: String
+    username: String,
+    _id:String,
 });
 
 //metodo que encripta la contraseña 
@@ -16,4 +17,4 @@ userSchema.methods.comparePassword= function (password) {
     return compareSync(password, this.password);
 };
 
-export default model('users', userSchema);
+export default model('user', userSchema);

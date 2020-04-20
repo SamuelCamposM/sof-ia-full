@@ -15,4 +15,4 @@ const casos = new Schema({
 })
 
 
-export default model('casos', casos)
+export default model('caso', casos)

@@ -6,12 +6,9 @@
     <br />
      
      <v-card class="pa-md-4 mx-lg-auto" max-width="500" outlined :dark="oscuro">
-       <v-alert type="error text-center animated  bounce delay-1s" v-if="animacion">
-      Ocurrio un error! 
-    </v-alert>
       <div>
-    <form action="http://localhost:4000/signup" method="post">
-     <v-text-field type="text" name="username"  class="d-none"  hide-details="auto" label="Usuario" v-model="usuario"></v-text-field> <!-- se esta ocultando pero sin este campo el formulario es inutil -->
+    <form action="http://localhost:4000/signin" method="post">
+     <v-text-field type="text" name="username"  class="d-none"  hide-details="auto" label="Usuario" v-model="username"></v-text-field> <!-- se esta ocultando pero sin este campo el formulario es inutil -->
     <v-text-field type="email" name="email"  hide-details="auto" label="Correo" v-model="correo"></v-text-field>
     <v-text-field type="password" name="password"  label="Contraseña" v-model="password" ></v-text-field>
     <v-btn  block color="blue" dark type="submit">Iniciar Sesion</v-btn>
@@ -29,7 +26,7 @@
 </template>
 <script>
 
-import { mapActions } from 'vuex'
+import { mapActions , mapState } from 'vuex'
 export default {
   name: "login",
   data() {
@@ -37,6 +34,7 @@ export default {
       password: "",
       username: "example",
       correo: "",
+      dark:false
     };
   },
     methods:{
@@ -44,9 +42,10 @@ export default {
     ...mapActions(["SeleccionarColor","SeleccionarColorFondo",'modoOscuro']),
 
     //esta funcion si se ejecuta hace la animacion
-    mostrarAnimacion(){
-      this.animacion = !this.animacion
-    }
+ 
+  },
+  computed: {
+    ...mapState(['oscuro'])
   },
 };
 </script>
