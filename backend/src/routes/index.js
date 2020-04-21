@@ -25,6 +25,7 @@ router.post("/signup", function (req, res, next) {
 });
 
 
+
 router.post("/signin", function (req, res, next) {
   console.log(req.isAuthenticated()); //devuelve un false si no estas logueado o un true si lo estas
   passport.authenticate("local-signin", function (err, user) {
@@ -43,47 +44,12 @@ router.post("/signin", function (req, res, next) {
       const token = jwt.sign({ user : body },'top_secret', {
         expiresIn: 60 * 60 * 24 // lo token va expirar en 24 horas
       });
-      console.log("el token:",token);
-      res.cookie('auth', token)  // enviando el token por cookie
+      res.cookie('auth', token), // enviando el token por cookiete
+      res.cookie('Param',user._id) 
       return res.redirect('http://localhost:8080/welcome');
     });
   })(req, res, next);
 });
 
-
-
-
-
-//ruta para mostrar todos los casos
-router.get('/mostrando-casos', async (req, res) => {
-  const casos = await Casos.find()
-  res.send(casos)
-
-})
-
-
-router.get('/profile', isAuthenticated, (req, res, next) => {
-  res.sendfile('src/public/profile.html')
-})
-
-
-router.get('/logout', (req, res, next) => {
-  req.logout();
-  res.redirect('/')
-});
-
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/signin')
-};
-
-router.get("/oneUser/:id", async (req, res) => {
-  const id = req.params.id;
-  const OneUser = await User.findOne({ _id: id });
-  console.log(OneUser)
-  res.send(OneUser);
-});
 
 module.exports = router;

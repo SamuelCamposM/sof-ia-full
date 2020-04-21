@@ -8,7 +8,7 @@ import flash from "connect-flash";
 import { ConectarDb } from "./database"; //importando funcion de la base de datos
 //Passport
 require('./passport/local')
-
+require('./passport/local-jwt')
 //midlewares
 app.use(cors())
 app.use(session({
@@ -34,6 +34,9 @@ app.use((req, res , next) => {
 app.use(express.static(__dirname + '/src/public'));
 //routes
 app.use('/', require('./routes/index'))
+const rutasReguras = require('./routes/routes-protect'); // importando las rutas que seran protegidas
+
+app.use('/user', passport.authenticate('jwt', { session : false }), rutasReguras );
 
 
 let puerto = process.env.PORT || 4000

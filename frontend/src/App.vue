@@ -132,7 +132,6 @@ import router from './router'
 export default {
   mounted(){
          let token = document.cookie.split('auth=')
-         console.log("tu token es: " + token[1]);
          this.auth = token[1]
   },
   data() {
