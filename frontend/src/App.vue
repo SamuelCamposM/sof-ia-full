@@ -10,7 +10,7 @@
             absolute
             :color="ColorNavegacion"
             class=".headline fo"
-            v-show="this.id"
+            v-show="this.auth"
           >
             <v-list dense nav class="py-0">
               <v-item>
@@ -130,6 +130,11 @@ import { mapState } from "vuex";
 import VueRouter from "vue-router";
 import router from './router'
 export default {
+  mounted(){
+         let token = document.cookie.split('auth=')
+         console.log("tu token es: " + token[1]);
+         this.auth = token[1]
+  },
   data() {
     return {
       items: [
@@ -152,19 +157,8 @@ export default {
       colorConfiguracion: true,
       colorlogin: false,
       usuario: sessionStorage.getItem("usuario"),
-      id: sessionStorage.getItem("idUser")
+      auth: ""
     };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.id = sessionStorage.getItem("idUser");
-      this.usuario = sessionStorage.getItem("usuario");
-      if(!this.usuario){
-        router.push({name:'login'})
-      }
-      
-   console.log(this.id)
-    }, 1000);
   },
   computed: {
     ...mapState(["ColorNavegacion", "ColorNavegacionFondo"])
